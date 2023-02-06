@@ -1,0 +1,64 @@
+﻿@model Asp.NetMVCCrud.Models.Batch
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3>Edit Batches</h3>
+        @using (Html.BeginForm("Edit", "Batches", FormMethod.Post, new { }))
+        {
+            @Html.HiddenFor(x=>x.BatchId)
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.BatchCode, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.TextBoxFor(x => x.BatchCode, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(x => x.BatchCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.Round, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.TextBoxFor(x => x.Round, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(x => x.Round, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.Course, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.EnumDropDownListFor(x => x.Course, new { @class = "form-select form-select-sm" })
+                    @Html.ValidationMessageFor(x => x.Course, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.StartDate, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.TextBoxFor(x => x.StartDate, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(x => x.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.EndDate, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.TextBoxFor(x => x.EndDate, new { @class = "form-control form-control-sm" })
+                    @Html.ValidationMessageFor(x => x.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                @Html.LabelFor(x => x.IsComplete, new { @class = "col-form-label col-form-label-sm col-2" })
+                <div class="col-4">
+                    @Html.CheckBoxFor(x => x.IsComplete, new { @class = "form-check form-check-sm" })
+                    @Html.ValidationMessageFor(x => x.IsComplete, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row mb-1">
+                <div class="col-4 offset-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="col-12">
+    @Html.ActionLink("Back to List", "Index")
+</div>

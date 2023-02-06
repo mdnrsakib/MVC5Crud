@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Asp.NetMVCCrud.Models.Batch>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3>Batches</h3>
+        <div class="d-flex justify-content-end mb-1">
+            @Html.ActionLink("Add New", "Create", "Batches", new { }, new {@class= "btn btn-primary btn-sm"})
+        </div> 
+        <table class="table table-bordered">
+            <thead class="bg-light">
+                <tr>
+                    <th>@Html.DisplayNameFor(x => x.BatchCode)</th>
+                    <th>@Html.DisplayNameFor(x => x.Round)</th>
+                    <th>@Html.DisplayNameFor(x => x.Course)</th>
+                    <th>@Html.DisplayNameFor(x => x.StartDate)</th>
+                    <th>@Html.DisplayNameFor(x => x.EndDate)</th>
+                    <th>@Html.DisplayNameFor(x => x.IsComplete)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(x => b.BatchCode)</td>
+                    <td>@Html.DisplayFor(x => b.Round)</td>
+                    <td>@Html.DisplayFor(x => b.Course)</td>
+                    <td>@Html.DisplayFor(x => b.StartDate)</td>
+                    <td>@Html.DisplayFor(x => b.EndDate)</td>
+                    <td>@Html.DisplayFor(x => b.IsComplete)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Batches", new { id = b.BatchId }, new { @class = "btn btn-secondary btn-sm" })
+                        <a href="@Url.Action("Delete", "Batches", new { id = b.BatchId }) " class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table> 
+    </div>
+</div>
